@@ -4,20 +4,23 @@
 using namespace std;
 
 void append(alist* a, const alist* b)
-{
-    if (a -> elements == nullptr) {a -> elements = b -> elements;}
-    else if (b -> elements == nullptr) {return;}
+{   
     const int size = a -> size + b -> size;
     int* arr = new int[size];
-    for (int i = 0; i < size; i++)
-    {
-        if (i < a -> size) {arr[i] = (a -> elements[i]);}
-        else {arr[i] = (b -> elements[i - a -> size]);}
+
+    int i = 0;
+    for (i = 0; i < a->size; i++){
+        arr[i] = a->elements[i];
     }
-    
-    delete [] a -> elements; 
-    a -> elements = arr;
+
+    for (int j = 0; j < b->size; j++){
+        arr[i++] = b->elements[j];
+    }
+
+    delete [] a->elements;
     a -> size = size;
+    a -> elements = arr;
+
     return;
 }
 
