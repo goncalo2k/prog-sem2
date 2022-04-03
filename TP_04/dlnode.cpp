@@ -10,8 +10,8 @@ struct dlnode {
 
 //! Builds a new node containing value v followed by next.
 dlnode* build(int v, dlnode* next=nullptr) {
-  dlnode* n = new dlnode { v , nullptr, next };
-  if (next != nullptr) { next->prev = n; }
+  dlnode* n = new dlnode {v , nullptr, next };
+  if (next != nullptr) {next->prev = n; }
   return n;
 }
 
