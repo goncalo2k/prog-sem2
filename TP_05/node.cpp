@@ -2,30 +2,30 @@
 using namespace std;
 
 //! Doubly-linked node containing an int value.
-struct dlnode {
+struct node {
   int value;     // Value.
-  dlnode* prev;  // Previous node.
-  dlnode* next;  // Next node.
+  node* prev;  // Previous node.
+  node* next;  // Next node.
 };
 
 //! Builds a new node containing value v followed by next.
-dlnode* build(int v, dlnode* next=nullptr) {
-  dlnode* n = new dlnode {v , nullptr, next };
-  if (next != nullptr) {next->prev = n; }
+node* build(int v, node* next=nullptr) {
+  node* n = new node { v , nullptr, next };
+  if (next != nullptr) { next->prev = n; }
   return n;
 }
 
 //! Releases the memory allocated to n and successors.
-void destroy(dlnode* n) {
+void destroy(node* n) {
   while (n != nullptr) {
-    dlnode* aux = n -> next;
+    node* aux = n -> next;
     delete n;
     n = aux;
   }
 }
 
 //! Prints 
-void print(const dlnode* n) {
+void print(const node* n) {
   while (n != nullptr) {
     cout << "(";
     if (n->prev == nullptr) cout << "\\<";
