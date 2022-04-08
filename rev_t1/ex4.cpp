@@ -17,32 +17,34 @@ bool is_prime(int n)
 
 bool is_pern(int n) 
 {
-    int bin = 0, rem, prod = 1;
-    while (n != 0)
+    int rem, count = 0;
+    while (n > 0)
     {
         rem = n % 2;
-        bin = bin + (rem * prod);
         n = n / 2;
-        prod *= 10;
-        if (rem == 0)
+        if (rem == 1)
         {
-            return false;
+            count++;
         }
         else
         {
             continue;
         }
     }
-    return true;
+    return is_prime(count);
 }
 
 int main()
 {
-    int a, b;
-    cin >> a; cin >>b;
+    int a = 10, b = 50;
     int aux = a;
     while (aux <= b)
     {
-     if(is_pern(a) ) && is_pern(b) && is_prime(a)) cout aux
+     if(is_pern(aux) && is_prime(aux)) 
+     {
+        cout << aux;
+     }
+    aux++;
     }
+    return 0;
 }
