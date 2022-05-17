@@ -14,11 +14,13 @@ void print(const vector<string>& v) {
 
 void split(const string& s, vector<string>& v)
 {
-    int start_pos = 0, aux_pos;
+    long unsigned int start_pos = 0, aux_pos;
     aux_pos = s.find(' ', start_pos);
-    while (start_pos != npos) 
+    while (start_pos != string::npos) 
     {
-        
+     aux_pos = s.find(' ', start_pos);
+     v.push_back(s.substr(aux_pos - start_pos));
+     start_pos = aux_pos;
     }
 }
 int main()
