@@ -1,17 +1,18 @@
-#include <iostream>
 #include "Point.h"
 
-Point::Point() {
-    this->x_ = 0;
-    this->y_ = 0;
+// Default constructor
+Point::Point(): x_(0), y_(0) {}
+
+// Constructor
+Point::Point(int x, int y): x_(x), y_(y) {}
+
+// Get x
+int Point::get_x() const { return x_; }
+
+// Get y
+int Point::get_y() const { return y_; }
+
+// Show coordinates
+void Point::show() const {
+    std::cout << '(' << x_ << ',' << y_ << ')';
 }
-Point::Point(const int x, const int y) {
-    this->x_ = x;
-    this-> y_ = y;
-}
-
-int Point::get_x() const {return x_;}
-int Point::get_y() const {return y_;}
-
-void Point::show() const {std::cout << '(' << x_ << ' , ' << y_  << ')';}
-
