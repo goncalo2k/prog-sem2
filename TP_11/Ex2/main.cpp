@@ -31,7 +31,8 @@ class Rectangle : public Shape
     double perimeter() const {return 2*width_ + 2*height_;}
     bool contains(const point& p) const 
     {
-        if ((x >= Shape::get_center().x - width_/2 && x <= Shape::get_center().x + width_/2) && (y >= Shape::get_center().y - height_/2 && y <= Shape::get_center().y + height_/2) )
+        if ((p.x >= Shape::get_center().x - width_/2 && p.x <= Shape::get_center().x + width_/2) && (p.y >= Shape::get_center().y - height_/2 && p.y <= Shape::get_center().y + height_/2)) return true;
+        return false;
     }
     private:
     double width_;
